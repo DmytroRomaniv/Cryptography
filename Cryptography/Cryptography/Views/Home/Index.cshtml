@@ -1,0 +1,40 @@
+﻿@model ResultViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @if (Model == null)
+    {
+        <h1>
+            Choose an algorithm
+        </h1>
+    }
+    else
+    {
+        <div class="container">
+            <div class="col-sm-6" style="float:left">
+                <h3>@Model.LeftTitle</h3>
+                <hr />
+                <p>@Model.LeftMessage</p>
+            </div>
+            <div class="col-sm-6" style="float:left">
+                <h3>@Model.RightTitle</h3>
+                <hr />
+                <p>@Html.Raw(Model.RightMessage)</p>
+            </div>
+            <div class="col-sm-6">
+                @Html.ActionLink("Encode using frequency analysis", "FrequencyAlgorithm", "Home",
+                                               new
+                                               {
+                                                   message = Model.LeftMessage
+                                               },
+                                               htmlAttributes: new
+                                               {
+                                                   @class = "btn btn-success btn-lg",
+                                                   @role = "button"
+                                               })
+            </div>
+        </div>
+    }
+</div>

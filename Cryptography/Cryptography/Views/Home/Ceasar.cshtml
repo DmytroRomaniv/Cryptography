@@ -1,0 +1,30 @@
+﻿@model CeasarInputModel
+@{
+    ViewData["Title"] = "Ceasar";
+}
+
+
+<form method="post" asp-controller="Home" asp-action="Ceasar">
+    <div class="container text-center">
+        <h1 class="col-sm-12">Ceasar</h1>
+        <div class="form-group row">
+
+            <div class="col-sm-6 form-group">
+                <label asp-for="NumberOfMoves"></label><br />
+                <input type="number" asp-for="NumberOfMoves" />
+                <span asp-validation-for="NumberOfMoves"></span>
+            </div>
+            <div class="col-sm-12 form-group">
+                <label asp-for="Message"></label><br />
+                <textarea rows="3" type="text" asp-for="Message" class="form-control"></textarea>
+                <span asp-validation-for="Message"></span>
+            </div>
+            <br />
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-success">Send</button>
+            </div>
+
+        </div>
+    </div>
+
+</form>
